@@ -21,7 +21,15 @@ import { ContactComponent } from './contact/contact.component';
 
 export const ROUTES :Routes = [
   {
+  path: '**',
+  component: NotFoundComponent,
+},
+{
   path: 'Home',
+  component: HomeComponent,
+},
+{
+  path: '1',
   component: HomeComponent,
 },
 {
@@ -49,7 +57,9 @@ export const ROUTES :Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES, {
+      enableTracing: true,
+    }),
     MatMenuModule,
     MatButtonModule,
   ],
