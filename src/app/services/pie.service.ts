@@ -2,8 +2,8 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, map, of, switchMap, tap } from 'rxjs';
 import { Category, Pie } from '../models/pie';
 import { PIES } from '../models/pie-data.mock';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,9 @@ export class PieService {
 
   private readonly route = inject(ActivatedRoute);
   private readonly selectedPie = this.route.queryParamMap.pipe(
-    map((params) => params.get('productId'))
+    map((params) => {
+      return params.get('productId');
+    })
   );
 
   readonly filteredPies$ = this.selectedCategory.pipe(
@@ -42,10 +44,10 @@ export class PieService {
     this.filteredPies$.pipe(
       map((pies) => {
         if(id){
-          return pies.find((pie) => pie.id === id) || pies[0];
+          return pies.find((pie) => pie.id === id);
         }
 
-        return pies[0];
+        return undefined;
       })
     )));
   readonly selectedPieSignal = toSignal(this.selectedPie$);

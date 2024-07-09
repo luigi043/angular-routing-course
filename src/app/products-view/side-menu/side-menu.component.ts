@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { PieService } from '../../services/pie.service';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { tap } from 'rxjs';
 import { ROUTER_TOKENS } from 'src/app/app.routes';
+import { PRODUCT_ROUTER_TOKENS } from '../products.routes';
 
 @Component({
   standalone: true,
@@ -18,11 +20,12 @@ import { ROUTER_TOKENS } from 'src/app/app.routes';
   styleUrls: ['./side-menu.component.css']
 })
 export class SideMenuComponent {
+  @Input() customize = false;
+
+  private readonly pieService = inject(PieService);
   pies$ = this.pieService.filteredPies$;
 
-  readonly ROUTER_TOKENS = ROUTER_TOKENS;
-
-  constructor(
-    private readonly pieService: PieService,
-  ) {}
+  readonly PRODUCT_ROUTER_TOKENS = PRODUCT_ROUTER_TOKENS;
+  readonly customizeLink = `./${PRODUCT_ROUTER_TOKENS.CUSTOMIZE}`;
+  readonly detailLink = `./${PRODUCT_ROUTER_TOKENS.DETAIL}`;
 }
