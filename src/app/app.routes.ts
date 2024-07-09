@@ -8,9 +8,10 @@ import { AboutComponent } from './about/about.component';
 export enum ROUTER_TOKENS {
   HOME = 'home',
   SHOP = 'shop',
-  CONTACT= 'conctact',
-  ABOUT = 'about'
+  CONTACT = 'contact',
+  ABOUT = 'about',
 }
+
 export const ROUTES: Routes = [
   {
     path: '',
@@ -26,14 +27,13 @@ export const ROUTES: Routes = [
     component: ProductsViewComponent,
   },
   {
-    path: ROUTER_TOKENS.ABOUT,
-    component: AboutComponent,
-  },
-  {
     path: ROUTER_TOKENS.CONTACT,
     component: ContactComponent,
   },
-
+  {
+    path: ROUTER_TOKENS.ABOUT,
+    component: AboutComponent,
+  },
   {
     path: '**',
     component: NotFoundComponent,
