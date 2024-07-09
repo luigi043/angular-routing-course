@@ -15,6 +15,6 @@ export class SideMenuComponent {
   ) {}
 
   selectPie(id: number){
-    this.pieService.setSelectedPie(id);
+    this.pieService['setSelectedPie'](id);
   }
 }
