@@ -1,5 +1,3 @@
-![image](https://github.com/luigi043/angular-routing-course/assets/73402404/16d36972-2e2b-4740-9856-2936b50dc2b9)
-
 # AngularRoutingModuleOne
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.

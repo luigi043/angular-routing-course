@@ -35,7 +35,6 @@
 
 .site-header-wrapper .header-icons ul {
   display: flex;
-  align-items: center;
   list-style-type: none;
 }
 
@@ -48,25 +47,3 @@
   top: -5px;
 }
 
-.active-link {
-  font-size: 16px;
-  font-weight: 800;
-  text-shadow: 3px 3px 3px rgba(54, 48, 44, 1);
-}
-
-.active-link-li {
-  background-color: rgb(222, 222, 222);
-}
-
-.total-items {
-  color: white;
-  position: absolute;
-  top: 0px;
-  left: 26px;
-}
-
-label{
-  color: white;
-  font-size: .8rem;
-  margin-right: 10px;
-}

@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { HeroSectionComponent } from './hero-section/hero-section.component';
-import { SubSectionComponent } from './sub-section/sub-section.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  standalone: true,
-  imports: [
-    HeroSectionComponent,
-    SubSectionComponent,
-  ],
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor() {
+    console.log('constructor Home Component');
+  }
+  ngOnInit(): void {
+      console.log('init Home Component');
+  }
+
 }
