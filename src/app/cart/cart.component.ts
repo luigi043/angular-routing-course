@@ -8,7 +8,7 @@ import { ContactForm } from '../models/contact-form';
 import { FormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
-import { ROUTER_TOKENS } from '../app.routes';
+import { ROUTER_TOKENS } from '../app-route.constants';
 
 @Component({
   selector: 'app-cart',
@@ -26,13 +26,13 @@ import { ROUTER_TOKENS } from '../app.routes';
 export class CartComponent {
   readonly cartService = inject(CartService);
   readonly router = inject(Router);
+  readonly contactService = inject(ContactService);
 
   readonly cartItemsPlusQuantity = this.cartService.cartItemsPlusQuantity;
   readonly subtotal = this.cartService.subtotal;
   readonly salesTax = this.cartService.salesTax;
   readonly total = this.cartService.total;
 
-  readonly contactService = inject(ContactService);
   destroyed$ = new ReplaySubject<void>(1);
 
   model: ContactForm = {};

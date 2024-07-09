@@ -2,9 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { PieService } from '../../services/pie.service';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { tap } from 'rxjs';
-import { ROUTER_TOKENS } from 'src/app/app.routes';
-import { PRODUCT_ROUTER_TOKENS } from '../products.routes';
+import { PRODUCT_ROUTER_TOKENS } from '../product-routes.constant';
 
 @Component({
   standalone: true,
@@ -28,4 +26,6 @@ export class SideMenuComponent {
   readonly PRODUCT_ROUTER_TOKENS = PRODUCT_ROUTER_TOKENS;
   readonly customizeLink = `./${PRODUCT_ROUTER_TOKENS.CUSTOMIZE}`;
   readonly detailLink = `./${PRODUCT_ROUTER_TOKENS.DETAIL}`;
+  readonly customizeTestId = 'customize-view-';
+  readonly detailTestId = 'detail-view-';
 }
